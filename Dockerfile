@@ -1,7 +1,7 @@
 FROM       ubuntu:16.04
 
 RUN apt-get update
-RUN apt-get curl
+RUN apt-get install curl
 
 RUN curl -s -o /tmp/oc.tar.gz https://mirror.openshift.com/pub/openshift-v4/clients/oc/4.3/linux/oc.tar.gz && \
     tar -C /usr/local/bin -zxf /tmp/oc.tar.gz oc && \
