@@ -5,6 +5,8 @@ ENV pip_packages "ansible"
 
 RUN apt-get clean && apt-get update
 
+RUN apt-get install -y openssh-server
+
 RUN apt-get install -y curl
 
 RUN curl -s -o /tmp/oc.tar.gz https://mirror.openshift.com/pub/openshift-v4/clients/oc/4.3/linux/oc.tar.gz && \
@@ -43,11 +45,6 @@ RUN echo "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
 RUN rm -f /lib/systemd/system/systemd*udev* \
   && rm -f /lib/systemd/system/getty.target
 
-
-
-
-
-RUN apt-get install -y openssh-server
 
 RUN mkdir /var/run/sshd
 
